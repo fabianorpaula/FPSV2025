@@ -7,16 +7,31 @@ public class ZombieAI : MonoBehaviour
     public float detectionRange = 10f;
     public float attackRange = 2f;
     public ZombieState currentState;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject personagem;
+    
     void Start()
     {
-        
+        personagem = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Seguir();
+    }
+
+
+    void Seguir()
+    {
+
+        Vector3 vetorCorrigido = new Vector3(
+            personagem.transform.position.x,
+            transform.position,
+            personagem.transform.position.z);
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            vetorCorrigido,
+            0.01f);
     }
 }
