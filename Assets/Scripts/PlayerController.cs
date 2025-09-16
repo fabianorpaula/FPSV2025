@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     //Meus Dados De Jogador
     public int hp = 100;
-
+    private TMP_Text textoHp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
         mainCamera = Camera.main;
+        textoHp = GameObject.FindGameObjectWithTag("HpTexto").
+            GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -122,6 +125,12 @@ public class PlayerController : MonoBehaviour
     void Dano()
     {
         hp--;
+        AtualizaDados();
+    }
+
+    void AtualizaDados()
+    {
+        textoHp.text = hp.ToString()+"/100";
     }
 
     private void OnTriggerEnter(Collider colidiu)

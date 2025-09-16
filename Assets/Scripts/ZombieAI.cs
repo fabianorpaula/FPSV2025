@@ -24,6 +24,11 @@ public class ZombieAI : MonoBehaviour
         {
             Seguir();
         }
+        if(currentState == ZombieState.Attacking)
+        {
+            animator.SetTrigger("atk");
+            OlharPersonagem();
+        }
     }
 
     void Presenca()
@@ -32,12 +37,17 @@ public class ZombieAI : MonoBehaviour
         float distanciaPersonagem = Vector3.Distance(
             personagem.transform.position,
             transform.position);
-        if (distanciaPersonagem < 10)
+        if(distanciaPersonagem < 2)
+        {
+            currentState = ZombieState.Attacking;
+        }
+        else if (distanciaPersonagem < 10)
         {
             currentState = ZombieState.Walking;
             animator.SetBool("walk", true);
+
         }
-        if(distanciaPersonagem > 20)
+        else if(distanciaPersonagem > 20)
         {
             currentState = ZombieState.Idle;
             animator.SetBool("walk", false);
@@ -59,6 +69,17 @@ public class ZombieAI : MonoBehaviour
             0.01f);
 
         transform.LookAt(vetorCorrigido);
+    }
+
+    void OlharPersonagem()
+    {
+        Vector3 vetorCorrigido = new Vector3(
+            personagem.transform.position.x,
+            transform.position.y,
+            personagem.transform.position.z);
+
+        transform.LookAt(vetorCorrigido);
+
     }
 
     public void IniciarAtaque()
