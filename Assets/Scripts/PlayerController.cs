@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private float cameraPitch = 0f;
     private bool isGrounded = false;
     private bool isRunning = false;
+
+    //Meus Dados De Jogador
+    public int hp = 100;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -113,5 +118,19 @@ public class PlayerController : MonoBehaviour
                 footPosition.position + Vector3.down * 0.05f);
         }
     }
+
+    void Dano()
+    {
+        hp--;
+    }
+
+    private void OnTriggerEnter(Collider colidiu)
+    {
+        if(colidiu.gameObject.tag == "AtaqueInimigo")
+        {
+            Dano();
+        }
+    }
+
 
 }

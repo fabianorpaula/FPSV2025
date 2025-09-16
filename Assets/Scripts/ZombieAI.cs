@@ -8,6 +8,7 @@ public class ZombieAI : MonoBehaviour
     public float attackRange = 2f;
     public ZombieState currentState;
     public GameObject personagem;
+    public GameObject meuAtaque;
     
     void Start()
     {
@@ -59,4 +60,18 @@ public class ZombieAI : MonoBehaviour
 
         transform.LookAt(vetorCorrigido);
     }
+
+    public void IniciarAtaque()
+    {
+        //Ativando o meu ataque;
+        meuAtaque.SetActive(true);
+    }
+
+    public void EncerrarAtaque()
+    {
+        //Desativando o meu ataque;
+        meuAtaque.SetActive(false);
+    }
+
+
 }
