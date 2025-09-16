@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     //Meus Dados De Jogador
     public int hp = 100;
     private TMP_Text textoHp;
+    public GameObject telaDano;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -126,6 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         hp--;
         AtualizaDados();
+        telaDano.SetActive(true);
     }
 
     void AtualizaDados()
