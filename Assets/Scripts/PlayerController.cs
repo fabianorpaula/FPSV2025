@@ -125,9 +125,19 @@ public class PlayerController : MonoBehaviour
 
     void Dano()
     {
-        hp--;
+        //Perda de Hp agora é 10 pontos por ataque
+        hp = hp - 10;
         AtualizaDados();
         telaDano.SetActive(true);
+    }
+    void GanharVida()
+    {
+        hp = hp + 20;
+         if(hp > 100)
+        {
+            hp = 100;
+        }
+        AtualizaDados();
     }
 
     void AtualizaDados()
@@ -140,6 +150,12 @@ public class PlayerController : MonoBehaviour
         if(colidiu.gameObject.tag == "AtaqueInimigo")
         {
             Dano();
+        }
+
+        if(colidiu.gameObject.tag == "CaixaVida")
+        {
+            GanharVida();
+            Destroy(colidiu.gameObject);
         }
     }
 
