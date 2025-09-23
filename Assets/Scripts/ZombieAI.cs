@@ -10,6 +10,8 @@ public class ZombieAI : MonoBehaviour
     public GameObject personagem;
     public GameObject meuAtaque;
     public int hp = 25;
+    public bool zumbiVivo = true;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -19,15 +21,17 @@ public class ZombieAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Presenca();
-        if (currentState == ZombieState.Walking)
-        {
-            Seguir();
-        }
-        if(currentState == ZombieState.Attacking)
-        {
-            animator.SetTrigger("atk");
-            OlharPersonagem();
+        if (zumbiVivo == true)
+        {   Presenca();
+            if (currentState == ZombieState.Walking)
+            {
+                Seguir();
+            }
+            if (currentState == ZombieState.Attacking)
+            {
+                animator.SetTrigger("atk");
+                OlharPersonagem();
+            }
         }
     }
 
@@ -99,9 +103,17 @@ public class ZombieAI : MonoBehaviour
         hp = hp - tipoDano; 
         if(hp < 0)
         {
-            Destroy(this.gameObject);
+            animator.SetBool("die", true);
         }
+        animator.SetTrigger("dmg");
     }
+    public void Morreu()
+    {
+        //Destroy(this.gameObject);
+        //Inativado
+    }
+
+
     private void OnTriggerEnter(Collider colidir)
     {
         //ELE TOCOU NA BALA?
