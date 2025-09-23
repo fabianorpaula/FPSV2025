@@ -9,7 +9,7 @@ public class ZombieAI : MonoBehaviour
     public ZombieState currentState;
     public GameObject personagem;
     public GameObject meuAtaque;
-    
+    public int hp = 25;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -94,5 +94,21 @@ public class ZombieAI : MonoBehaviour
         meuAtaque.SetActive(false);
     }
 
+    public void TomeiDano(int tipoDano)
+    {
+        hp = hp - tipoDano; 
+        if(hp < 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider colidir)
+    {
+        //ELE TOCOU NA BALA?
+        if(colidir.gameObject.tag == "Bullet")
+        {
+            Destroy(colidir.gameObject);
+            TomeiDano(10);        }
+    }
 
 }
