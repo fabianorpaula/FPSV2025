@@ -681,7 +681,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 309801998428896340, guid: a74b8a6a05b924e489d6c0826b2c52e3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1007260576996471501, guid: a74b8a6a05b924e489d6c0826b2c52e3, type: 3}
       propertyPath: m_Enabled
@@ -731,6 +731,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4438985400337360558, guid: a74b8a6a05b924e489d6c0826b2c52e3, type: 3}
+      propertyPath: sonsZumbi.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438985400337360558, guid: a74b8a6a05b924e489d6c0826b2c52e3, type: 3}
+      propertyPath: 'sonsZumbi.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fcc08591f7d736d40a7615d4330db341, type: 3}
+    - target: {fileID: 4438985400337360558, guid: a74b8a6a05b924e489d6c0826b2c52e3, type: 3}
+      propertyPath: 'sonsZumbi.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7267be3b729f0264f88e4d919103881a, type: 3}
+    - target: {fileID: 4438985400337360558, guid: a74b8a6a05b924e489d6c0826b2c52e3, type: 3}
+      propertyPath: 'sonsZumbi.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 881322d83f979d0449f1a08be7da39fd, type: 3}
+    - target: {fileID: 4438985400337360558, guid: a74b8a6a05b924e489d6c0826b2c52e3, type: 3}
+      propertyPath: 'sonsZumbi.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 912b2eeb3fbcf984b89267f387ded4fe, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

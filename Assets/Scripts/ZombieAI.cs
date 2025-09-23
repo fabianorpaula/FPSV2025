@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ZombieAI : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class ZombieAI : MonoBehaviour
     public GameObject meuAtaque;
     public int hp = 25;
     public bool zumbiVivo = true;
+
+    public List<AudioClip> sonsZumbi;
+
 
     void Start()
     {
@@ -100,8 +105,9 @@ public class ZombieAI : MonoBehaviour
 
     public void TomeiDano(int tipoDano)
     {
-        hp = hp - tipoDano; 
-        if(hp < 0)
+        hp = hp - tipoDano;
+        meuAtaque.SetActive(false);
+        if (hp < 0)
         {
             animator.SetBool("die", true);
         }
@@ -109,6 +115,9 @@ public class ZombieAI : MonoBehaviour
     }
     public void Morreu()
     {
+        zumbiVivo = false;
+        meuAtaque.SetActive(false);
+        GetComponent<CapsuleCollider>().enabled = false;
         //Destroy(this.gameObject);
         //Inativado
     }
@@ -119,8 +128,25 @@ public class ZombieAI : MonoBehaviour
         //ELE TOCOU NA BALA?
         if(colidir.gameObject.tag == "Bullet")
         {
-            Destroy(colidir.gameObject);
-            TomeiDano(10);        }
+            if (zumbiVivo == true)
+            {
+                Destroy(colidir.gameObject);
+                TomeiDano(10);
+            }
+        }
     }
 
+
+    ///Cuidando do Som
+    ///som 0 - Idle
+    ///Som 1 - Walk
+    ///Som 2 - Atack
+    ///Som 3 - Dano
+
+    public void SomZumbi(int tipoSom) {
+
+        GetComponent<AudioSource>().clip = sonsZumbi[tipoSom];
+        GetComponent<AudioSource>().Play();
+    }
+   
 }
