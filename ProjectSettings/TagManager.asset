@@ -7,6 +7,7 @@ TagManager:
   - AtaqueInimigo
   - HpTexto
   - Bullet
+  - ArmaTexto
   layers:
   - Default
   - TransparentFX

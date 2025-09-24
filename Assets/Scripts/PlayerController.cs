@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     //Meus Dados Arma
     public GameObject armaUsada;
     public GameObject arma1;
+    public GameObject arma2;
     private TMP_Text textoArma;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<TMP_Text>();
         textoHp = GameObject.FindGameObjectWithTag("HpTexto").
             GetComponent<TMP_Text>();
+        armaUsada = arma1;
     }
 
     // Update is called once per frame
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
                 Vector3.down,
                 0.05f);
         Move();
+        AtualizaDados();
     }
 
     void Move() 
@@ -155,7 +158,7 @@ public class PlayerController : MonoBehaviour
             maxMunicao.ToString();
         string pmunicao = armaUsada.GetComponent<Arma>().
             municao.ToString();
-        textoArma.text = hp.ToString() + pmunicao+"/"+pmaxMunicao;
+        textoArma.text = pmunicao+"/"+pmaxMunicao;
     }
 
     private void OnTriggerEnter(Collider colidiu)
@@ -169,6 +172,23 @@ public class PlayerController : MonoBehaviour
         {
             GanharVida();
             Destroy(colidiu.gameObject);
+        }
+    }
+
+
+    void TrocarArma()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            arma2.SetActive(false);
+            arma1.SetActive(true);
+            armaUsada = arma1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            arma2.SetActive(true);
+            arma1.SetActive(false);
+            armaUsada = arma2;
         }
     }
 
