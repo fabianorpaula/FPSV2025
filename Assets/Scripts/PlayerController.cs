@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
     private TMP_Text textoHp;
     public GameObject telaDano;
 
+    //Meus Dados Arma
+    public GameObject armaUsada;
+    public GameObject arma1;
+    private TMP_Text textoArma;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +37,8 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
         mainCamera = Camera.main;
+        textoArma = GameObject.FindGameObjectWithTag("ArmaTexto").
+            GetComponent<TMP_Text>();
         textoHp = GameObject.FindGameObjectWithTag("HpTexto").
             GetComponent<TMP_Text>();
     }
@@ -143,6 +150,12 @@ public class PlayerController : MonoBehaviour
     void AtualizaDados()
     {
         textoHp.text = hp.ToString()+"/100";
+
+        string pmaxMunicao = armaUsada.GetComponent<Arma>().
+            maxMunicao.ToString();
+        string pmunicao = armaUsada.GetComponent<Arma>().
+            municao.ToString();
+        textoArma.text = hp.ToString() + pmunicao+"/"+pmaxMunicao;
     }
 
     private void OnTriggerEnter(Collider colidiu)
