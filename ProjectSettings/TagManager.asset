@@ -8,6 +8,8 @@ TagManager:
   - HpTexto
   - Bullet
   - ArmaTexto
+  - CaixaVida
+  - CaixaMunicao
   layers:
   - Default
   - TransparentFX

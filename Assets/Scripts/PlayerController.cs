@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
                 0.05f);
         Move();
         AtualizaDados();
+        TrocarArma();
     }
 
     void Move() 
@@ -150,6 +151,12 @@ public class PlayerController : MonoBehaviour
         AtualizaDados();
     }
 
+    void GanharMunicao()
+    {
+        armaUsada.GetComponent<Arma>().municao = 
+            armaUsada.GetComponent<Arma>().maxMunicao;
+    }
+
     void AtualizaDados()
     {
         textoHp.text = hp.ToString()+"/100";
@@ -171,6 +178,11 @@ public class PlayerController : MonoBehaviour
         if(colidiu.gameObject.tag == "CaixaVida")
         {
             GanharVida();
+            Destroy(colidiu.gameObject);
+        }
+        if (colidiu.gameObject.tag == "CaixaMunicao")
+        {
+            GanharMunicao();
             Destroy(colidiu.gameObject);
         }
     }
