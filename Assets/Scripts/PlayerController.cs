@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -140,6 +141,15 @@ public class PlayerController : MonoBehaviour
         hp = hp - 10;
         AtualizaDados();
         telaDano.SetActive(true);
+        if(hp <= 0)
+        {
+            Morrer();
+        }
+    }
+
+    void Morrer()
+    {
+        SceneManager.LoadScene("GameOver");
     }
     void GanharVida()
     {
@@ -184,6 +194,10 @@ public class PlayerController : MonoBehaviour
         {
             GanharMunicao();
             Destroy(colidiu.gameObject);
+        }
+        if (colidiu.gameObject.tag == "CaixaVitoria")
+        {
+            SceneManager.LoadScene("Vitoria");
         }
     }
 
