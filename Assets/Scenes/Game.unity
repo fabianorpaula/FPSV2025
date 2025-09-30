@@ -1098,6 +1098,71 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1001 &1177589449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 389.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 439.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235564179407350134, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406529052357786535, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6de353f21d09ddc4bbfe9427130193f1, type: 2}
+    - target: {fileID: 2735430952177797335, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_Name
+      value: CaixaVitoria
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735430952177797335, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
+      propertyPath: m_TagString
+      value: CaixaVitoria
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c4e60f82d3e90394aa3ab5da52048b83, type: 3}
 --- !u!1 &1217967029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,3 +2170,4 @@ SceneRoots:
   - {fileID: 850680419}
   - {fileID: 5505607059429664133}
   - {fileID: 5139241593274284970}
+  - {fileID: 1177589449}
