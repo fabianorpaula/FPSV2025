@@ -15,7 +15,7 @@ public class Arma : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)){
+        if(Input.GetMouseButtonDown(0)|| Input.GetButtonDown("Fire1")){
            if(municao > 0)
             {
                 Disparo();
